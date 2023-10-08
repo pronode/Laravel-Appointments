@@ -7,7 +7,7 @@
         </div>
 
         <div class="card-body">
-            <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
+            <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.5/dist/fullcalendar.min.css" rel="stylesheet">
 
             <div id='calendar'></div>
 
@@ -18,8 +18,9 @@
 
 @section('scripts')
     @parent
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2/min/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.5/dist/fullcalendar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.5/dist/locale-all.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -29,9 +30,20 @@
             console.log(events)
             $('#calendar').fullCalendar({
                 // put your options and callbacks here
-                lang: 'pl',
+                views: {
+                    agendaCustom: {
+                        type: 'agenda',
+                        duration: {
+                            days: 7
+                        },
+                        buttonText: '7 day'
+                    }
+                },
+                locale: 'pl',
                 events: events,
-                defaultView: 'agendaWeek'
+                defaultView: 'agendaCustom',
+                minTime: '07:00:00',
+                maxTime: '21:00:00',
             })
         })
     </script>
