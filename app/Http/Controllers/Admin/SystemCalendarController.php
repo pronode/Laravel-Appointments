@@ -23,6 +23,7 @@ class SystemCalendarController extends Controller
                 'title' => $appointment->client->name . ' ('.$appointment->employee->name.')',
                 'start' => $appointment->start_time,
                 'url'   => route('admin.appointments.edit', $appointment->id),
+                'backgroundColor' => $appointment->employee->color
             ];
         }
 
