@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
   window._token = $('meta[name="csrf-token"]').attr('content')
 
@@ -17,12 +19,10 @@ $(document).ready(function () {
 
   $('.date').datetimepicker({
     format: 'YYYY-MM-DD',
-    locale: 'en'
   })
 
   $('.datetime').datetimepicker({
     format: 'YYYY-MM-DD HH:mm',
-    locale: 'en',
     sideBySide: true,
     stepping: 15
   })
