@@ -20,7 +20,7 @@ class SystemCalendarController extends Controller
             }
 
             $events[] = [
-                'title' => $appointment->client->name . ' ('.$appointment->employee->name.')',
+                'title' => ($appointment->confirmed ? '✓ ' : '') . $appointment->client->name . ' ('.$appointment->employee->name.')',
                 'start' => $appointment->start_time,
                 'end' => $appointment->finish_time,
                 'url'   => route('admin.appointments.edit', $appointment->id),

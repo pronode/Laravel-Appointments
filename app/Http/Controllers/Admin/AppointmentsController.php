@@ -20,7 +20,7 @@ class AppointmentsController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $query = Appointment::with(['client', 'employee', 'services'])->select(sprintf('%s.*', (new Appointment)->table));
+            $query = Appointment::with(['client', 'employee', 'services'])->select(sprintf('%s.*', (new Appointment)->table))->orderBy('id', 'DESC');
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');

@@ -120,6 +120,23 @@
                         {{ trans('cruds.appointment.fields.price_helper') }}
                     </p>
                 </div>
+
+                <div class="form-group {{ $errors->has('confirmed') ? 'has-error' : '' }}">
+                    <label for="confirmed">Potwierdzona?</label>
+                    <select name="confirmed">
+                        <option value="0">Nie
+                        </option>
+                        <option value="1">Tak
+                        </option>
+                    </select>
+
+                    @if ($errors->has('confirmed'))
+                        <em class="invalid-feedback">
+                            {{ $errors->first('confirmed') }}
+                        </em>
+                    @endif
+                </div>
+
                 <div class="form-group {{ $errors->has('comments') ? 'has-error' : '' }}">
                     <label for="comments">{{ trans('cruds.appointment.fields.comments') }}</label>
                     <textarea id="comments" name="comments" class="form-control ">{{ old('comments', isset($appointment) ? $appointment->comments : '') }}</textarea>

@@ -31,7 +31,16 @@ class Appointment extends Model
         'deleted_at',
         'employee_id',
         'finish_time',
+        'confirmed'
     ];
+
+    protected $appends = ['confirmedword'];
+
+
+    public function getConfirmedwordAttribute() {
+
+        return $this->confirmed ? 'Tak' : 'Nie';
+    }
 
     public function client()
     {
